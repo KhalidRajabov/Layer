@@ -7,7 +7,13 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Interfaces
 {
-    internal interface IRepository<T> where T:IEntity
+    public interface IRepository<T> where T:IEntity
     {
+        bool Create(T entity);
+        bool Delete(T entity);
+        bool Update(T entity);
+
+        T GetOne(Predicate<T> filter=null);
+        List<T> GetAll(Predicate<T> filter = null);
     }
 }
